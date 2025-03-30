@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #b537f2;
+    --neon-pink: #ff3399;
+  }
+
+  body {
+    @apply bg-gray-900 text-white;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    box-shadow: 0 0 15px var(--neon-blue),
+                0 0 30px var(--neon-purple);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px var(--neon-blue),
+                 0 0 20px var(--neon-purple);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20;
+  }
+
+  .hover-card {
+    @apply transition-all duration-300 hover:scale-105 hover:neon-glow cursor-pointer;
+  }
+}
+
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.parallax-bg {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
